@@ -3,213 +3,154 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UnReel | Social Accountability for Healthier Scrolling</title>
+    <title>UnReel | Let friends hold you accountable</title>
     <meta
       name="description"
-      content="UnReel helps students reduce unhealthy social media use through social accountability, real-time insights, and voluntary behavior change."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
+      content="UnReel transforms screen-time reduction into a shared, competitive experience through friend accountability, goals, and challenges."
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <!-- Sticky Navigation -->
-    <header class="site-header" id="home">
-      <nav class="navbar container" aria-label="Main navigation">
-        <a class="brand" href="#home" aria-label="UnReel home">
-          <span class="brand-logo" aria-hidden="true">UR</span>
-          <span class="brand-text">UnReel</span>
-        </a>
-        <button class="menu-toggle" aria-expanded="false" aria-controls="site-menu">
-          Menu
-        </button>
-        <ul class="nav-links" id="site-menu">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#process">Process</a></li>
-          <li><a href="#market">Market Research</a></li>
-          <li><a href="#deliverables">Deliverables</a></li>
-          <li><a href="#team">Team</a></li>
-        </ul>
-      </nav>
+    <header class="site-header" id="top">
+      <div class="container header-row">
+        <a class="brand" href="#top"><span class="brand-black">Un</span><span class="brand-orange">reel</span></a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="site-menu">Menu</button>
+        <nav aria-label="Main navigation">
+          <ul class="nav-links" id="site-menu">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#product">Product</a></li>
+            <li><a href="#videos">Videos</a></li>
+            <li><a href="#deliverables">Deliverables</a></li>
+            <li><a href="#team">Team</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <main>
-      <!-- Hero Section -->
-      <section class="hero section">
-        <div class="container hero-content">
-          <div class="hero-copy">
-            <div class="logo-chip">
-              <span class="logo-mark" aria-hidden="true">◉</span>
-              <span>Project Logo Placeholder</span>
-            </div>
-            <h1>UnReel</h1>
-            <p class="hero-tagline">
-              Helping people build healthier scrolling habits through social accountability and real-time reflection.
-            </p>
-            <a class="btn btn-primary" href="#process">View Our Work</a>
-          </div>
-          <div class="hero-card card floating" aria-label="UnReel key highlights">
-            <h2>Built for real behavior change</h2>
-            <ul>
-              <li>Voluntary habit shifts over forced lockouts</li>
-              <li>Friend-based motivation and accountability</li>
-              <li>Actionable usage patterns in real time</li>
-            </ul>
-          </div>
-        </div>
+    <main class="container main-content">
+      <section id="overview" class="section-block intro-block">
+        <p class="term">CS185 · Winter 2026</p>
+        <h1><span class="brand-black">Un</span><span class="brand-orange">reel</span></h1>
+        <p class="tagline">Let friends hold you accountable.</p>
+        <p class="subtag">Cut the scroll. Together.</p>
       </section>
 
-      <!-- About Section -->
-      <section class="section" id="about">
-        <div class="container">
-          <h2>About UnReel</h2>
-          <div class="grid three-col">
-            <article class="card">
-              <h3>Problem Statement</h3>
-              <p>
-                Students and young adults often recognize that excessive social media harms focus, mood,
-                and self-esteem, but awareness alone rarely leads to sustained behavior change.
-              </p>
-            </article>
-            <article class="card">
-              <h3>Proposed Solution</h3>
-              <p>
-                UnReel pairs real-time usage visibility with social accountability so users can make mindful,
-                self-directed decisions about scrolling before it becomes automatic.
-              </p>
-            </article>
-            <article class="card">
-              <h3>Primary Users</h3>
-              <p>
-                College students and early-career adults who want better digital balance without removing social
-                media from their daily lives.
-              </p>
-            </article>
-          </div>
-          <article class="card contrast-card about-diff">
-            <h3>How UnReel differs from digital detox apps</h3>
+      <section id="research" class="section-block">
+        <h2>Pitch</h2>
+        <div class="panel stack">
+          <p>
+            Gen Z spends over 3 hours a day on social media, and most existing screen-time tools are ignored. UnReel
+            turns reduction into a shared, competitive experience. Users set personal goals, create custom challenges,
+            and track progress with friends in real time.
+          </p>
+          <p>
+            The key idea is that willpower is not the main issue—social isolation is. UnReel adds accountability where
+            people currently have none.
+          </p>
+        </div>
+
+        <div class="two-col">
+          <article class="panel stack">
+            <h3>Why this problem matters</h3>
             <p>
-              Many digital detox tools rely on hard restrictions, guilt, or moral messaging. UnReel centers on
-              voluntary change, social motivation, and contextual self-awareness—helping users build habits they
-              can actually maintain.
+              Young adults average about 3 hours of social media daily, and this life stage is when habits are formed
+              that can persist for decades. Excessive use in this window is tied to poorer self-image, weaker real-world
+              social skills, and reduced attention span.
+            </p>
+            <p>
+              During needfinding, we found people already know they scroll too much. Awareness is not the gap.
+              Motivation and accountability are.
+            </p>
+          </article>
+
+          <article class="panel stack">
+            <h3>Why our solution is novel</h3>
+            <p>
+              Existing tools frame overuse as an individual discipline problem. UnReel uses friend connections to make
+              progress social, visible, and harder to ignore.
+            </p>
+            <p>
+              Instead of forcing lockouts, UnReel emphasizes shared reflection and friendly competition so users reduce
+              use by choice.
             </p>
           </article>
         </div>
-      </section>
 
-      <!-- Process Section -->
-      <section class="section" id="process">
-        <div class="container">
-          <h2>Process</h2>
-          <div class="grid two-col">
-            <article class="card">
-              <h3>GR1 – Needfinding</h3>
-              <p>
-                Users are aware social media is harmful, but awareness alone doesn’t change behavior. Comparison
-                affects users differently, and existing tools often feel controlling or moralizing.
-              </p>
-              <a class="btn btn-secondary" href="./assets/needfinding.pdf" target="_blank" rel="noopener">
-                Open Needfinding PDF
-              </a>
-            </article>
-            <article class="card">
-              <h3>GR2 – POVs, HMWs, Experience Prototypes</h3>
-              <p>
-                Three solutions were tested: physical friction to continue scrolling (invalidated), a friend
-                comparison leaderboard (validated), and an offline activity reward system (situationally
-                validated).
-              </p>
-              <a class="btn btn-secondary" href="./assets/gr2_slides.pdf" target="_blank" rel="noopener">
-                Open GR2 Slides PDF
-              </a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Market Research Section -->
-      <section class="section" id="market">
-        <div class="container">
-          <h2>Market Research</h2>
-          <p class="section-lead">
-            We analyzed existing tools to understand how they approach distraction reduction and what they miss.
+        <article class="panel stack">
+          <h3>Closest competitor</h3>
+          <p>
+            The closest product is OneSec, which introduces delays before opening distracting apps. This can interrupt
+            impulses, but delays may become normalized and features can be disabled. UnReel focuses on sustained
+            motivation through comparison and accountability with friends.
           </p>
-          <div class="table-wrapper card">
+          <div class="table-wrap compact">
             <table>
-              <caption>
-                Competitor comparison
-              </caption>
               <thead>
                 <tr>
-                  <th scope="col">Product</th>
-                  <th scope="col">Social Accountability</th>
-                  <th scope="col">Real-Time Data</th>
-                  <th scope="col">Voluntary Control</th>
-                  <th scope="col">Friend Comparison</th>
+                  <th>Feature</th>
+                  <th>UnReel</th>
+                  <th>Break Free</th>
+                  <th>Freedom</th>
+                  <th>OneSec</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">Break Free</th>
-                  <td>Partial</td>
-                  <td>✅</td>
-                  <td>❌</td>
-                  <td>❌</td>
+                  <td>Social Accountability</td>
+                  <td>Yes</td>
+                  <td>Limited</td>
+                  <td>No</td>
+                  <td>No</td>
                 </tr>
                 <tr>
-                  <th scope="row">Distraction Free Instagram</th>
-                  <td>❌</td>
-                  <td>Partial</td>
-                  <td>✅</td>
-                  <td>❌</td>
+                  <td>Real-Time Data</td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+                  <td>Yes</td>
                 </tr>
                 <tr>
-                  <th scope="row">Freedom</th>
-                  <td>❌</td>
-                  <td>✅</td>
-                  <td>❌</td>
-                  <td>❌</td>
+                  <td>Intentional behavior change</td>
+                  <td>Yes</td>
+                  <td>No</td>
+                  <td>No</td>
+                  <td>Partial</td>
                 </tr>
                 <tr>
-                  <th scope="row">OneSec</th>
-                  <td>❌</td>
-                  <td>✅</td>
-                  <td>Partial</td>
-                  <td>❌</td>
-                </tr>
-                <tr class="highlight-row">
-                  <th scope="row">UnReel</th>
-                  <td>✅</td>
-                  <td>✅</td>
-                  <td>✅</td>
-                  <td>✅</td>
+                  <td>Friend Comparison</td>
+                  <td>Yes</td>
+                  <td>No</td>
+                  <td>No</td>
+                  <td>No</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <article class="card features-callout">
-            <h3>UnReel's combined advantage</h3>
-            <ul>
-              <li>✔ Social accountability</li>
-              <li>✔ Real-time data</li>
-              <li>✔ Voluntary change</li>
-              <li>✔ Friend competition</li>
-            </ul>
-          </article>
+        </article>
+      </section>
+
+      <section id="product" class="section-block">
+        <h2>Product Walkthrough</h2>
+        <div class="panel stack">
+          <p>
+            Home shows personal stats (reels watched, time spent, and goal progress). Leaderboard introduces social
+            pressure with real-time ranking against friends. Goals supports app-specific limits on your own terms.
+            Challenges turns those goals into group competitions.
+          </p>
+          <p>
+            Early testers were confused by Goals vs Challenges, so we redesigned both flows with clearer labels and
+            separate entry points. We also simplified layout hierarchy so key actions are obvious without explanation.
+          </p>
         </div>
       </section>
 
-      <!-- Concept Video Section -->
-      <section class="section" id="concept-video">
-        <div class="container">
-          <h2>Concept Video</h2>
-          <div class="card video-card">
-            <div class="video-frame">
+      <section id="videos" class="section-block">
+        <h2>Video Deliverables</h2>
+        <div class="video-grid">
+          <article class="panel">
+            <h3>GR4 Concept Video</h3>
+            <div class="media-frame">
               <iframe
                 src="https://www.youtube.com/embed/JEo4capoGFc"
                 title="UnReel concept video"
@@ -218,61 +159,135 @@
                 allowfullscreen
               ></iframe>
             </div>
-            <div class="video-actions">
-              <a class="btn btn-secondary" href="https://youtu.be/JEo4capoGFc" target="_blank" rel="noopener">
-                Open on YouTube
-              </a>
-              <a class="btn btn-secondary" href="./assets/video.mp4" download>
-                Download Placeholder Video
-              </a>
+            <div class="action-row">
+              <a href="https://youtu.be/JEo4capoGFc" target="_blank" rel="noopener">YouTube Link</a>
+              <a href="./assets/video.mp4" download>Download MP4</a>
             </div>
-          </div>
+          </article>
+
+          <article class="panel">
+            <h3>GR9 Demo Video</h3>
+            <div class="media-frame">
+              <video controls preload="metadata" aria-label="UnReel demo video">
+                <source src="./assets/demo-video.mp4" type="video/mp4" />
+                Your browser does not support video playback.
+              </video>
+            </div>
+            <div class="action-row">
+              <a href="./assets/demo-video.mp4" target="_blank" rel="noopener">Open Video File</a>
+              <a href="./assets/demo-video.mp4" download>Download MP4</a>
+            </div>
+          </article>
         </div>
       </section>
 
-      <!-- Deliverables Section -->
-      <section class="section" id="deliverables">
-        <div class="container">
-          <h2>Deliverables</h2>
-          <div class="grid deliverables-grid">
-            <a class="card deliverable-item" href="./assets/needfinding.pdf" target="_blank" rel="noopener">Needfinding Report (PDF)</a>
-            <a class="card deliverable-item" href="./assets/gr2_slides.pdf" target="_blank" rel="noopener">GR2 Slides (PDF)</a>
-            <a class="card deliverable-item" href="https://youtu.be/JEo4capoGFc" target="_blank" rel="noopener">Concept Video</a>
-            <a class="card deliverable-item" href="./assets/medium-fi-prototype.pdf">Medium-Fi Prototype (Coming Soon)</a>
-            <a class="card deliverable-item" href="./assets/high-fi-prototype.pdf">High-Fi Prototype (Coming Soon)</a>
-            <a class="card deliverable-item" href="./assets/heuristic-evaluation.pdf">Heuristic Evaluation (Coming Soon)</a>
-            <a class="card deliverable-item" href="./assets/final-report.pdf">Final Report (Coming Soon)</a>
-            <a class="card deliverable-item" href="./assets/poster.pdf">Poster (Coming Soon)</a>
-            <a class="card deliverable-item" href="./assets/demo-video.mp4">Demo Video (Coming Soon)</a>
-          </div>
+      <section id="deliverables" class="section-block">
+        <h2>Required Deliverables</h2>
+        <p class="note">Slides follow <code>assets/gr_#.pdf</code> and all links are relative for GitHub Pages hosting.</p>
+
+        <div class="table-wrap panel">
+          <table>
+            <thead>
+              <tr>
+                <th>GR</th>
+                <th>Deliverable</th>
+                <th>Links</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>GR1</td>
+                <td>Needfinding</td>
+                <td><a href="./assets/gr_1.pdf" target="_blank" rel="noopener">Slides (PDF)</a></td>
+              </tr>
+              <tr>
+                <td>GR2</td>
+                <td>Additional Needfinding, POVs, HMWs, Brainstorming, Experience Prototypes</td>
+                <td><a href="./assets/gr_2.pdf" target="_blank" rel="noopener">Slides (PDF)</a></td>
+              </tr>
+              <tr>
+                <td>GR4</td>
+                <td>Concept Video</td>
+                <td>
+                  <a href="./assets/gr_4.pdf" target="_blank" rel="noopener">Slides</a> ·
+                  <a href="https://youtu.be/JEo4capoGFc" target="_blank" rel="noopener">YouTube/Vimeo</a> ·
+                  <a href="./assets/video.mp4" target="_blank" rel="noopener">Download MP4</a>
+                </td>
+              </tr>
+              <tr>
+                <td>GR5</td>
+                <td>Sketching, Low-Fi Prototyping, Usability Testing</td>
+                <td><a href="./assets/gr_5.pdf" target="_blank" rel="noopener">Slides (PDF)</a></td>
+              </tr>
+              <tr>
+                <td>GR6</td>
+                <td>Interactive Medium-Fi Prototype</td>
+                <td>
+                  <a href="./assets/gr_6.pdf" target="_blank" rel="noopener">Slides</a> ·
+                  <a href="./assets/medium-fi-prototype.pdf" target="_blank" rel="noopener">Prototype File</a> ·
+                  <a href="./assets/gr6-readme.pdf" target="_blank" rel="noopener">README</a>
+                </td>
+              </tr>
+              <tr>
+                <td>GR7/8</td>
+                <td>Heuristic Evaluation Synthesis</td>
+                <td>
+                  <a href="./assets/gr_7_8.pdf" target="_blank" rel="noopener">PDF</a> ·
+                  <a href="./assets/gr_7_8.xlsx" target="_blank" rel="noopener">XLSX</a>
+                </td>
+              </tr>
+              <tr>
+                <td>GR8</td>
+                <td>Interactive High-Fi Prototype</td>
+                <td>
+                  <a href="./assets/gr_8.pdf" target="_blank" rel="noopener">Slides</a> ·
+                  <a href="./assets/high-fi-prototype.pdf" target="_blank" rel="noopener">Prototype Link/File</a> ·
+                  <a href="./assets/gr8-readme.pdf" target="_blank" rel="noopener">README</a>
+                </td>
+              </tr>
+              <tr>
+                <td>GR9</td>
+                <td>Poster, Pitch, Demo Video</td>
+                <td>
+                  <a href="./assets/gr_9.pdf" target="_blank" rel="noopener">Slides</a> ·
+                  <a href="./assets/pitch-script.pdf" target="_blank" rel="noopener">Script</a> ·
+                  <a href="./assets/poster.pdf" target="_blank" rel="noopener">Poster</a> ·
+                  <a href="./assets/demo-video.mp4" target="_blank" rel="noopener">Demo Video</a>
+                </td>
+              </tr>
+              <tr>
+                <td>GR10</td>
+                <td>Final Report</td>
+                <td><a href="./assets/gr_10.pdf" target="_blank" rel="noopener">Google Doc / PDF Export</a></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
-      <!-- Team Section -->
-      <section class="section" id="team">
-        <div class="container">
-          <h2>Team GR 19</h2>
-          <div class="grid team-grid">
-            <article class="card team-card">
-              <h3>Pranav Gunhal</h3>
-              <p>Role: Research</p>
-            </article>
-            <article class="card team-card">
-              <h3>Wilson Lau</h3>
-              <p>Role: Prototyping</p>
-            </article>
-            <article class="card team-card">
-              <h3>Karthik Jandhyala</h3>
-              <p>Role: User Testing</p>
-            </article>
-          </div>
+      <section id="team" class="section-block">
+        <h2>Team</h2>
+        <div class="team-grid">
+          <article class="panel">
+            <h3>Pranav G.</h3>
+            <p>Research Lead</p>
+          </article>
+          <article class="panel">
+            <h3>Wilson L.</h3>
+            <p>Prototyping Lead</p>
+          </article>
+          <article class="panel">
+            <h3>Karthik J.</h3>
+            <p>Usability Testing Lead</p>
+          </article>
         </div>
+        <p class="site-link">Prototype: <a href="https://pgunhal.github.io/unreel/" target="_blank" rel="noopener">pgunhal.github.io/unreel/</a></p>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container">
-        <p>© <span id="year"></span> UnReel · GR 19</p>
+        <p>© <span id="year"></span> UnReel · CMPSC 185</p>
       </div>
     </footer>
 
