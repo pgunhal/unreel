@@ -1,0 +1,9 @@
+# Keep binary deliverables from producing text merge conflicts
+assets/*.pdf binary merge=ours
+assets/*.mp4 binary merge=ours
+assets/*.xlsx binary merge=ours
+
+# Treat common binary assets as non-text and prefer current branch on merge
+*.pdf binary merge=ours
+*.mp4 binary merge=ours
+*.xlsx binary merge=ours

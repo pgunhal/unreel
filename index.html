@@ -3,221 +3,182 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UnReel Project Website</title>
+    <title>UnReel | Let friends hold you accountable</title>
     <meta
       name="description"
-      content="UnReel project website with complete GR deliverables, process artifacts, videos, and final report links."
+      content="UnReel transforms screen-time reduction into a shared, competitive experience through goals, challenges, and friend accountability."
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <header class="site-header" id="top">
-      <div class="container header-row">
-        <a class="brand" href="#top">UnReel</a>
+    <header class="topbar" id="top">
+      <div class="container topbar-inner">
+        <a class="brand" href="#top"><span>Un</span><em>reel</em></a>
         <button class="menu-toggle" aria-expanded="false" aria-controls="site-menu">Menu</button>
-        <nav aria-label="Main navigation">
-          <ul class="nav-links" id="site-menu">
-            <li><a href="#project">Project</a></li>
-            <li><a href="#videos">Videos</a></li>
-            <li><a href="#deliverables">Deliverables</a></li>
-            <li><a href="#team">Team</a></li>
-          </ul>
-        </nav>
+        <ul class="nav" id="site-menu">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#story">Story</a></li>
+          <li><a href="#videos">Videos</a></li>
+          <li><a href="#deliverables">Deliverables</a></li>
+          <li><a href="#team">Team</a></li>
+        </ul>
       </div>
     </header>
 
-    <main class="container main-content">
-      <section id="project" class="section-block">
-        <h1>UnReel</h1>
-        <p class="value-prop">Social accountability for healthier scrolling habits.</p>
-        <div class="project-grid">
-          <article class="panel">
-            <h2>Project Summary</h2>
-            <p>
-              UnReel supports students who want to reduce unhealthy social media behavior without hard lockouts.
-              The product combines real-time usage visibility and friend accountability to make behavior change
-              practical and sustainable.
-            </p>
+    <main class="container page">
+      <section id="overview" class="showcase">
+        <div class="intro">
+          <p class="eyeline">CS185 · WINTER 2026</p>
+          <h1><span>Un</span><em>reel</em></h1>
+          <p class="lead">Let friends hold you accountable.</p>
+          <p class="sub">Cut the scroll. Together.</p>
+        </div>
+        <div class="mockup-wrap" aria-label="Product preview">
+          <article class="phone-card tilt-left">
+            <h2>Challenges</h2>
+            <p>Create group competitions with friends.</p>
           </article>
-          <article class="panel">
-            <h2>Scope</h2>
-            <p>
-              This site tracks the full project lifecycle from early needfinding through medium/high-fidelity
-              prototyping, heuristic synthesis, final demo, and final report.
-            </p>
+          <article class="phone-card focus">
+            <h2>Leaderboard</h2>
+            <p>Track rankings in real time and stay motivated.</p>
           </article>
-          <article class="panel">
-            <h2>Hosting</h2>
-            <p>
-              Built as a static website designed for GitHub Pages deployment with relative links for all local
-              assets.
-            </p>
+          <article class="phone-card tilt-right">
+            <h2>Goals</h2>
+            <p>Set personal limits for apps and daily reels.</p>
           </article>
         </div>
       </section>
 
-      <section id="videos" class="section-block">
+      <section id="story" class="section">
+        <h2>Pitch and Poster Answers</h2>
+        <div class="two-col">
+          <article class="card">
+            <h3>Why this problem matters</h3>
+            <p>
+              Young adults spend over 3 hours a day on social media. This stage of life is when habits become deeply
+              ingrained, so excessive scrolling can have long-term impact on self-image, social skills, and attention.
+            </p>
+          </article>
+          <article class="card accent-card">
+            <h3>What makes UnReel novel</h3>
+            <p>
+              Existing tools rely on lockouts and self-control alone. UnReel shifts behavior change into a social
+              context with shared reflection and friendly competition.
+            </p>
+          </article>
+        </div>
+
+        <article class="card">
+          <h3>Closest competitor</h3>
+          <p>
+            OneSec is the closest product: it inserts delays before opening distracting apps. While useful for impulse
+            interruption, delays can become easy to ignore. UnReel addresses sustained motivation through accountability
+            with friends.
+          </p>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>UnReel</th>
+                  <th>Break Free</th>
+                  <th>Freedom</th>
+                  <th>OneSec</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Social Accountability</td><td>Yes</td><td>Limited</td><td>No</td><td>No</td></tr>
+                <tr><td>Real-Time Data</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+                <tr><td>Intentional behavior change</td><td>Yes</td><td>No</td><td>No</td><td>Partial</td></tr>
+                <tr><td>Friend Comparison</td><td>Yes</td><td>No</td><td>No</td><td>No</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section id="videos" class="section">
         <h2>Video Deliverables</h2>
-        <div class="video-grid">
-          <article class="panel">
+        <div class="two-col">
+          <article class="card">
             <h3>GR4 Concept Video</h3>
-            <div class="media-frame">
+            <div class="media">
               <iframe
-                src="https://www.youtube.com/embed/JEo4capoGFc"
+                src="https://www.youtube.com/embed/DKmiRWPkzBs"
                 title="UnReel concept video"
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen
               ></iframe>
             </div>
-            <div class="action-row">
-              <a href="https://youtu.be/JEo4capoGFc" target="_blank" rel="noopener">YouTube Link</a>
-              <a href="./assets/video.mp4" download>Download MP4</a>
-            </div>
+            <p class="links"><a href="https://www.youtube.com/watch?v=DKmiRWPkzBs" target="_blank" rel="noopener">YouTube</a> · <a href="./assets/video.mp4" download>Download MP4</a></p>
           </article>
-
-          <article class="panel">
+          <article class="card">
             <h3>GR9 Demo Video</h3>
-            <div class="media-frame">
+            <div class="media">
               <video controls preload="metadata" aria-label="UnReel demo video">
                 <source src="./assets/demo-video.mp4" type="video/mp4" />
-                Your browser does not support video playback.
               </video>
             </div>
-            <div class="action-row">
-              <a href="./assets/demo-video.mp4" target="_blank" rel="noopener">Open Video File</a>
-              <a href="./assets/demo-video.mp4" download>Download MP4</a>
-            </div>
+            <p class="links"><a href="./assets/demo-video.mp4" target="_blank" rel="noopener">Open File</a> · <a href="./assets/demo-video.mp4" download>Download MP4</a></p>
           </article>
         </div>
       </section>
 
-      <section id="deliverables" class="section-block">
+      <section id="deliverables" class="section">
         <h2>Required Deliverables</h2>
-        <p class="note">Slides are linked using the expected pattern: <code>assets/gr_#.pdf</code>.</p>
-
-        <div class="table-wrap panel">
-          <table>
-            <thead>
-              <tr>
-                <th>GR</th>
-                <th>Deliverable</th>
-                <th>Links</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>GR1</td>
-                <td>Needfinding</td>
-                <td><a href="./assets/gr_1.pdf" target="_blank" rel="noopener">Slides (PDF)</a></td>
-              </tr>
-              <tr>
-                <td>GR2</td>
-                <td>Additional Needfinding, POVs, HMWs, Brainstorming, Experience Prototypes</td>
-                <td><a href="./assets/gr_2.pdf" target="_blank" rel="noopener">Slides (PDF)</a></td>
-              </tr>
-              <tr>
-                <td>GR4</td>
-                <td>Concept Video</td>
-                <td>
-                  <a href="./assets/gr_4.pdf" target="_blank" rel="noopener">Slides</a> ·
-                  <a href="https://youtu.be/JEo4capoGFc" target="_blank" rel="noopener">YouTube/Vimeo</a> ·
-                  <a href="./assets/video.mp4" target="_blank" rel="noopener">Download MP4</a>
-                </td>
-              </tr>
-              <tr>
-                <td>GR5</td>
-                <td>Sketching, Low-Fi Prototyping, Usability Testing</td>
-                <td><a href="./assets/gr_5.pdf" target="_blank" rel="noopener">Slides (PDF)</a></td>
-              </tr>
-              <tr>
-                <td>GR6</td>
-                <td>Interactive Medium-Fi Prototype</td>
-                <td>
-                  <a href="./assets/gr_6.pdf" target="_blank" rel="noopener">Slides</a> ·
-                  <a href="./assets/medium-fi-prototype.pdf" target="_blank" rel="noopener">Prototype File</a> ·
-                  <a href="./assets/gr6-readme.pdf" target="_blank" rel="noopener">README</a>
-                </td>
-              </tr>
-              <tr>
-                <td>GR7/8</td>
-                <td>Heuristic Evaluation Synthesis</td>
-                <td>
-                  <a href="./assets/gr_7_8.pdf" target="_blank" rel="noopener">PDF</a> ·
-                  <a href="./assets/gr_7_8.xlsx" target="_blank" rel="noopener">XLSX</a>
-                </td>
-              </tr>
-              <tr>
-                <td>GR8</td>
-                <td>Interactive High-Fi Prototype</td>
-                <td>
-                  <a href="./assets/gr_8.pdf" target="_blank" rel="noopener">Slides</a> ·
-                  <a href="./assets/high-fi-prototype.pdf" target="_blank" rel="noopener">Prototype Link/File</a> ·
-                  <a href="./assets/gr8-readme.pdf" target="_blank" rel="noopener">README</a>
-                </td>
-              </tr>
-              <tr>
-                <td>GR9</td>
-                <td>Poster, Pitch, Demo Video</td>
-                <td>
-                  <a href="./assets/gr_9.pdf" target="_blank" rel="noopener">Slides</a> ·
-                  <a href="./assets/pitch-script.pdf" target="_blank" rel="noopener">Script</a> ·
-                  <a href="./assets/poster.pdf" target="_blank" rel="noopener">Poster</a> ·
-                  <a href="./assets/demo-video.mp4" target="_blank" rel="noopener">Demo Video</a>
-                </td>
-              </tr>
-              <tr>
-                <td>GR10</td>
-                <td>Final Report</td>
-                <td><a href="./assets/gr_10.pdf" target="_blank" rel="noopener">Google Doc / PDF Export</a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <p class="note">Current links map to uploaded files in <code>assets/</code>. Missing uploads are listed below.</p>
+        <p class="note"><strong>Missing right now:</strong> <code>assets/concept-video.mp4</code>, <code>assets/gr1_slides.pdf</code>, <code>assets/gr6_slides.pdf</code>, <code>assets/gr8_slides.pdf</code>, <code>assets/gr9_poster.pdf</code>.</p>
+        <article class="card table-card">
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr><th>GR</th><th>Deliverable</th><th>Links</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>GR1</td><td>Needfinding</td><td><a href="./assets/needfinding.pdf" target="_blank" rel="noopener">Slides (PDF)</a></td></tr>
+                <tr><td>GR2</td><td>Additional Needfinding, POVs, HMWs, Brainstorming, Experience Prototypes</td><td><a href="./assets/gr2_slides.pdf" target="_blank" rel="noopener">Slides (PDF)</a></td></tr>
+                <tr><td>GR4</td><td>Concept Video</td><td><a href="./assets/gr4_slides.pdf" target="_blank" rel="noopener">Slides</a> · <a href="https://www.youtube.com/watch?v=DKmiRWPkzBs" target="_blank" rel="noopener">YouTube</a> · <a href="./assets/video.mp4" target="_blank" rel="noopener">Download MP4</a></td></tr>
+                <tr><td>GR5</td><td>Sketching, Low-Fi Prototyping, Usability Testing</td><td><a href="./assets/gr5_slides.pdf" target="_blank" rel="noopener">Slides (PDF)</a></td></tr>
+                <tr><td>GR6</td><td>Interactive Medium-Fi Prototype</td><td><a href="./assets/medium-fi-prototype.pdf" target="_blank" rel="noopener">Prototype File / Slides Export</a> · <a href="https://www.figma.com/proto/fOGOyVN79RFcHb9TgAvO7w/Untitled?node-id=0-1&t=Su2BZxNh77GJ93B6-1" target="_blank" rel="noopener">Figma Prototype</a></td></tr>
+                <tr><td>GR7/8</td><td>Heuristic Evaluation Synthesis</td><td><a href="./assets/heuristic-evaluation.pdf" target="_blank" rel="noopener">PDF</a></td></tr>
+                <tr><td>GR8</td><td>Interactive High-Fi Prototype</td><td><a href="./assets/high-fi-prototype.pdf" target="_blank" rel="noopener">Prototype Link/File / Slides Export</a> · <a href="https://www.figma.com/proto/2kpSoyKifVjUVs7i8SDebw/Unreel---HiFi-Prototype?node-id=0-1&t=tHmHo3jeiEH2WaLK-1" target="_blank" rel="noopener">Figma Prototype</a></td></tr>
+                <tr><td>GR9</td><td>Poster, Pitch, Demo Video</td><td><a href="./assets/poster.pdf" target="_blank" rel="noopener">Poster / Pitch Slide</a> · <a href="./assets/demo-video.mp4" target="_blank" rel="noopener">Demo Video</a></td></tr>
+                <tr><td>GR10</td><td>Final Report</td><td><a href="./assets/final-report.pdf" target="_blank" rel="noopener">Google Doc / PDF Export</a></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
       </section>
 
-      <section id="team" class="section-block">
-        <h2>Team GR 19</h2>
+      <section id="team" class="section">
+        <h2>Team</h2>
         <div class="team-grid">
-          <article class="panel">
-            <h3>Pranav G.</h3>
-            <p>Research Lead</p>
-          </article>
-          <article class="panel">
-            <h3>Wilson L.</h3>
-            <p>Prototyping Lead</p>
-          </article>
-          <article class="panel">
-            <h3>Karthik J.</h3>
-            <p>Usability Testing Lead</p>
-          </article>
+          <article class="card"><h3>Pranav G.</h3><p>Research Lead</p></article>
+          <article class="card"><h3>Wilson L.</h3><p>Prototyping Lead</p></article>
+          <article class="card"><h3>Karthik J.</h3><p>Usability Testing Lead</p></article>
         </div>
-        <p class="site-link">Prototype: <a href="https://pgunhal.github.io/unreel/" target="_blank" rel="noopener">pgunhal.github.io/unreel/</a></p>
+        <p class="prototype-link">Prototype: <a href="https://pgunhal.github.io/unreel/" target="_blank" rel="noopener">pgunhal.github.io/unreel/</a></p>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="container">
-        <p>© <span id="year"></span> UnReel</p>
-      </div>
+    <footer class="footer">
+      <div class="container"><p>© <span id="year"></span> UnReel · CMPSC 185</p></div>
     </footer>
 
     <script>
       const toggle = document.querySelector('.menu-toggle');
       const menu = document.querySelector('#site-menu');
-
       toggle.addEventListener('click', () => {
         const open = menu.classList.toggle('is-open');
         toggle.setAttribute('aria-expanded', String(open));
       });
-
-      document.querySelectorAll('.nav-links a').forEach((link) => {
+      document.querySelectorAll('.nav a').forEach((link) => {
         link.addEventListener('click', () => {
           menu.classList.remove('is-open');
           toggle.setAttribute('aria-expanded', 'false');
         });
       });
-
       document.querySelector('#year').textContent = new Date().getFullYear();
     </script>
   </body>
