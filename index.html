@@ -1,188 +1,927 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UnReel | Let friends hold you accountable</title>
-    <meta
-      name="description"
-      content="UnReel transforms screen-time reduction into a shared, competitive experience through goals, challenges, and friend accountability."
-    />
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <header class="topbar" id="top">
-      <div class="container topbar-inner">
-        <a class="brand" href="#top"><span>Un</span><em>reel</em></a>
-        <button class="menu-toggle" aria-expanded="false" aria-controls="site-menu">Menu</button>
-        <ul class="nav" id="site-menu">
-          <li><a href="#overview">Overview</a></li>
-          <li><a href="#story">Story</a></li>
-          <li><a href="#videos">Videos</a></li>
-          <li><a href="#deliverables">Deliverables</a></li>
-          <li><a href="#team">Team</a></li>
-        </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unreel — Let friends hold you accountable</title>
+  <meta name="description" content="Unreel transforms screen-time reduction into a shared, competitive experience through goals, challenges, and friend accountability." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:      #F4EFE6;
+      --surface: #EAE3D5;
+      --dark:    #2B2214;
+      --mid:     #7A6E5A;
+      --tan:     #CEC3AA;
+      --line:    rgba(43,34,20,0.1);
+      --orange:  #E76228;
+      --orange2: #F08A58;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── GRAIN ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; pointer-events: none; z-index: 1000;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+    }
+
+    /* ────────────────────────────
+       NAV
+    ──────────────────────────── */
+    .nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(244,239,230,0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 40px;
+      height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo-mark {
+      width: 34px; height: 34px;
+      background: var(--orange);
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .nav-logo-mark svg { width: 18px; height: 18px; }
+    .nav-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 900;
+      color: var(--dark);
+      letter-spacing: -0.5px; line-height: 1;
+    }
+    .nav-logo-text em { font-style: normal; color: var(--orange); }
+    .nav-links {
+      display: flex; gap: 4px; list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px; font-weight: 500;
+      color: var(--mid); text-decoration: none;
+      letter-spacing: 0.2px;
+      padding: 7px 16px;
+      border-radius: 8px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-links a:hover { background: rgba(231,98,40,0.1); color: var(--orange); }
+    .nav-cta {
+      background: var(--orange); color: white !important;
+      border-radius: 8px; padding: 8px 18px !important;
+    }
+    .nav-cta:hover { background: var(--orange2) !important; color: white !important; }
+    .nav-toggle { display: none; background: none; border: 1px solid var(--line); border-radius: 8px; cursor: pointer; padding: 8px 10px; }
+    .nav-toggle span {
+      display: block; width: 20px; height: 1.5px;
+      background: var(--dark); margin: 4px 0;
+      transition: 0.3s;
+    }
+
+    /* ────────────────────────────
+       HERO
+    ──────────────────────────── */
+    .hero {
+      min-height: calc(100vh - 60px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 1200px; margin: 0 auto;
+      padding: 80px 40px;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-text {}
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 28px;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 28px; height: 2px;
+      background: var(--orange); display: block;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(72px, 8vw, 110px);
+      font-weight: 900; line-height: 0.88;
+      letter-spacing: -4px; color: var(--dark);
+      margin-bottom: 28px;
+    }
+    .hero-title em { font-style: normal; color: var(--orange); }
+
+    .hero-rule {
+      width: 48px; height: 3px;
+      background: linear-gradient(90deg, var(--orange), transparent);
+      border-radius: 2px; margin-bottom: 24px;
+    }
+
+    .hero-tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 400; font-style: italic;
+      color: var(--dark); margin-bottom: 12px; line-height: 1.3;
+    }
+
+    .hero-sub {
+      font-size: 15px; font-weight: 300;
+      color: var(--mid); line-height: 1.65;
+      max-width: 420px; margin-bottom: 36px;
+    }
+
+    .hero-actions {
+      display: flex; gap: 14px; flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--orange); color: white;
+      border: none; border-radius: 8px;
+      padding: 13px 26px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px; font-weight: 600;
+      text-decoration: none; cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-primary:hover { background: var(--orange2); transform: translateY(-1px); }
+    .btn-ghost {
+      background: transparent; color: var(--dark);
+      border: 1.5px solid rgba(43,34,20,0.2);
+      border-radius: 8px; padding: 13px 26px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px; font-weight: 500;
+      text-decoration: none; cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* phones */
+    .hero-phones {
+      position: relative;
+      height: 540px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .phone {
+      position: absolute;
+      border-radius: 32px;
+      background: var(--surface);
+      border: 1.5px solid rgba(43,34,20,0.12);
+      overflow: hidden;
+      opacity: 0;
+    }
+    .ph-c {
+      width: 222px; height: 470px;
+      z-index: 3;
+      box-shadow: 0 32px 80px rgba(43,34,20,0.22), 0 8px 20px rgba(43,34,20,0.1);
+      animation: phonein-c 0.8s ease 0.2s forwards;
+    }
+    .ph-l {
+      width: 196px; height: 415px;
+      left: 20px; top: 62px;
+      transform: rotate(-7deg);
+      z-index: 1;
+      box-shadow: 0 18px 50px rgba(43,34,20,0.14);
+      animation: phonein-l 0.8s ease 0.4s forwards;
+    }
+    .ph-r {
+      width: 196px; height: 415px;
+      right: 20px; top: 62px;
+      transform: rotate(6deg);
+      z-index: 1;
+      box-shadow: 0 18px 50px rgba(43,34,20,0.14);
+      animation: phonein-r 0.8s ease 0.55s forwards;
+    }
+    .phone::before {
+      content: ''; position: absolute;
+      top: 11px; left: 50%; transform: translateX(-50%);
+      width: 58px; height: 14px;
+      background: var(--dark); border-radius: 8px; z-index: 20;
+    }
+    .pscreen {
+      position: absolute; top: 40px; left: 9px; right: 9px; bottom: 44px;
+      border-radius: 20px; background: #F6F1E9;
+      overflow: hidden; padding: 10px 9px 6px;
+    }
+    .pnav {
+      position: absolute; bottom: 7px; left: 9px; right: 9px;
+      height: 36px; background: var(--dark); border-radius: 12px;
+      display: flex; align-items: center; justify-content: space-around;
+    }
+    .pni { width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; }
+    .pni.on { background: var(--orange); }
+    .pt { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 5px; }
+    .ps { font-size: 7px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--mid); margin: 6px 0 3px; }
+    .pr { display: flex; align-items: center; gap: 5px; background: rgba(206,195,170,0.5); border-radius: 7px; padding: 5px 6px; margin-bottom: 3px; font-size: 8.5px; color: var(--dark); }
+    .pr.hl { background: var(--orange); color: white; }
+    .pav { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 7.5px; font-weight: 700; color: white; flex-shrink: 0; }
+    .pname { font-weight: 600; font-size: 8.5px; }
+    .psub { font-size: 7px; opacity: 0.6; }
+    .pfire { font-size: 7.5px; color: var(--orange); margin-bottom: 4px; line-height: 1.4; }
+    .prn { font-weight: 700; font-size: 9px; width: 12px; flex-shrink: 0; }
+    .obtn { background: var(--orange); color: white; border-radius: 7px; padding: 6px 8px; text-align: center; font-size: 8px; font-weight: 600; margin-top: 4px; }
+    .check { color: #57a057; font-size: 12px; }
+    .xbtn { color: #c03030; font-size: 12px; }
+    .ml { margin-left: auto; }
+    .pgoal { background: rgba(206,195,170,0.5); border-radius: 7px; padding: 5px 7px; margin-bottom: 4px; font-size: 8.5px; font-weight: 500; color: var(--dark); }
+    .pbar-bg { height: 4px; background: rgba(43,34,20,0.1); border-radius: 2px; margin-top: 4px; overflow: hidden; }
+    .pbar { height: 100%; border-radius: 2px; }
+    .live-box { background: rgba(206,195,170,0.5); border-radius: 7px; padding: 5px 6px; margin-top: 4px; }
+    .live-t { font-size: 7.5px; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
+    .bubbles { display: flex; gap: 4px; justify-content: center; }
+    .bub { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .bc { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 7.5px; font-weight: 700; color: white; border: 1.5px solid rgba(255,255,255,0.4); }
+    .bc.you { border-color: var(--orange); }
+    .blbl { font-size: 6px; color: var(--dark); font-weight: 500; }
+    .bcnt { font-size: 6px; background: var(--orange); color: white; border-radius: 3px; padding: 1px 3px; }
+    .see-more { text-align: center; font-size: 7.5px; color: var(--mid); margin: 3px 0; }
+
+    @keyframes phonein-c {
+      from { opacity: 0; transform: translateX(-50%) translateY(30px) scale(0.94); }
+      to   { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+    }
+    @keyframes phonein-l {
+      from { opacity: 0; transform: rotate(-7deg) translateY(30px); }
+      to   { opacity: 1; transform: rotate(-7deg) translateY(0); }
+    }
+    @keyframes phonein-r {
+      from { opacity: 0; transform: rotate(6deg) translateY(30px); }
+      to   { opacity: 1; transform: rotate(6deg) translateY(0); }
+    }
+    /* center phone needs translateX */
+    .ph-c { left: 50%; transform: translateX(-50%); }
+
+    /* ────────────────────────────
+       DIVIDER
+    ──────────────────────────── */
+    .full-rule {
+      width: 100%; height: 1px;
+      background: var(--line);
+    }
+    .section-rule {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ────────────────────────────
+       STAT BAR
+    ──────────────────────────── */
+    .stat-bar {
+      background: var(--orange);
+      overflow: hidden;
+    }
+    .stat-bar-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .stat-item {
+      padding: 44px 40px;
+      border-right: 1px solid rgba(255,255,255,0.2);
+      position: relative;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 60px; font-weight: 900;
+      color: white; line-height: 1;
+      letter-spacing: -2px;
+    }
+    .stat-label {
+      font-size: 14px; font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      margin-top: 8px; line-height: 1.4;
+    }
+    .stat-label strong { color: white; font-weight: 600; }
+
+    /* ────────────────────────────
+       SECTIONS SHARED
+    ──────────────────────────── */
+    .wrap {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .section { padding: 100px 0; }
+    .section + .section { padding-top: 0; }
+
+    .section-header { margin-bottom: 48px; }
+    .section-eyebrow {
+      font-size: 13px; font-weight: 600;
+      letter-spacing: 0.3px; text-transform: none;
+      color: var(--orange); margin-bottom: 10px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-eyebrow::before { content: ''; width: 20px; height: 2px; background: var(--orange); flex-shrink: 0; }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 4vw, 54px);
+      font-weight: 900; color: var(--dark);
+      letter-spacing: -1.5px; line-height: 1.03;
+      margin-bottom: 0;
+    }
+    .section-title em { font-style: italic; color: var(--orange); }
+
+    /* ────────────────────────────
+       STORY SECTION (2-col cards)
+    ──────────────────────────── */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-bottom: 2px;
+    }
+    .story-card {
+      background: var(--surface);
+      padding: 40px;
+    }
+    .story-card:first-child { border-radius: 12px 0 0 0; }
+    .story-card:last-child  { border-radius: 0 12px 0 0; }
+    .story-card-label {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 14px;
+    }
+    .story-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px; font-weight: 700;
+      color: var(--dark); margin-bottom: 14px;
+      line-height: 1.2;
+    }
+    .story-card p {
+      font-size: 15px; font-weight: 300;
+      color: var(--mid); line-height: 1.7;
+    }
+
+    /* competitor table */
+    .comp-table-wrap {
+      background: var(--surface);
+      border-radius: 0 0 12px 12px;
+      overflow: hidden;
+    }
+    .comp-table-head {
+      padding: 28px 40px 16px;
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--mid);
+    }
+    table { width: 100%; border-collapse: collapse; }
+    th, td {
+      padding: 14px 20px;
+      text-align: left;
+      font-size: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+    th {
+      background: rgba(43,34,20,0.05);
+      font-weight: 600; font-size: 12px;
+      letter-spacing: 0.5px; color: var(--dark);
+    }
+    td { color: var(--mid); font-weight: 300; }
+    td:first-child { color: var(--dark); font-weight: 500; }
+    td.yes { color: var(--orange); font-weight: 600; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(231,98,40,0.03); }
+
+    /* ────────────────────────────
+       VIDEO SECTION
+    ──────────────────────────── */
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .video-card {
+      background: var(--surface);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .video-embed {
+      background: var(--dark);
+      position: relative;
+    }
+    .video-embed iframe {
+      width: 100%; aspect-ratio: 16/9;
+      display: block; border: 0;
+    }
+    .video-body { padding: 24px 28px; }
+    .video-label {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 8px;
+    }
+    .video-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 700;
+      color: var(--dark); margin-bottom: 12px;
+    }
+    .video-links { display: flex; gap: 16px; }
+    .video-links a {
+      font-size: 13px; font-weight: 500;
+      color: var(--orange); text-decoration: none;
+      border-bottom: 1px solid rgba(231,98,40,0.3);
+      padding-bottom: 1px;
+      transition: border-color 0.2s;
+    }
+    .video-links a:hover { border-color: var(--orange); }
+
+    /* ────────────────────────────
+       DELIVERABLES
+    ──────────────────────────── */
+    .gr-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .gr-row {
+      background: var(--surface);
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 0;
+      align-items: center;
+      padding: 20px 28px;
+      transition: background 0.15s;
+    }
+    .gr-row:first-child { border-radius: 12px 12px 0 0; }
+    .gr-row:last-child  { border-radius: 0 0 12px 12px; }
+    .gr-row:hover { background: #E2D9C8; }
+    .gr-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px; font-weight: 700;
+      color: var(--orange); letter-spacing: 0.5px;
+    }
+    .gr-desc {
+      font-size: 14px; font-weight: 400; color: var(--dark);
+    }
+    .gr-desc span { font-weight: 300; color: var(--mid); font-size: 13px; }
+    .gr-links {
+      display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end;
+    }
+    .gr-link {
+      font-size: 12px; font-weight: 500;
+      color: var(--orange); text-decoration: none;
+      background: rgba(231,98,40,0.1);
+      border: 1px solid rgba(231,98,40,0.2);
+      border-radius: 6px; padding: 5px 12px;
+      transition: background 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+    .gr-link:hover { background: rgba(231,98,40,0.18); border-color: rgba(231,98,40,0.4); }
+
+    /* ────────────────────────────
+       TEAM
+    ──────────────────────────── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .team-card {
+      background: var(--surface);
+      padding: 36px 32px;
+    }
+    .team-card:first-child { border-radius: 12px 0 0 12px; }
+    .team-card:last-child  { border-radius: 0 12px 12px 0; }
+    .team-initial {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: white;
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+    }
+    .team-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 700;
+      color: var(--dark); margin-bottom: 6px;
+    }
+    .team-role {
+      font-size: 13px; font-weight: 300;
+      color: var(--mid); letter-spacing: 0.3px;
+    }
+
+    /* ────────────────────────────
+       FOOTER
+    ──────────────────────────── */
+    .footer {
+      background: var(--dark);
+      padding: 48px 0;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px; font-weight: 900;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: -1px; text-decoration: none;
+    }
+    .footer-logo em { font-style: normal; color: var(--orange); }
+    .footer-meta {
+      font-size: 13px; font-weight: 300;
+      color: rgba(255,255,255,0.3);
+      text-align: right; line-height: 1.6;
+    }
+    .footer-meta a { color: var(--orange2); text-decoration: none; }
+    .footer-meta a:hover { text-decoration: underline; }
+
+    /* ────────────────────────────
+       RESPONSIVE
+    ──────────────────────────── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding: 60px 24px; min-height: auto; gap: 60px; }
+      .hero-phones { height: 420px; }
+      .ph-c { width: 190px; height: 400px; }
+      .ph-l, .ph-r { width: 168px; height: 355px; }
+      .stat-bar-inner { grid-template-columns: 1fr; gap: 0; padding: 0; }
+      .stat-item { padding: 28px 24px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .wrap { padding: 0 24px; }
+      .section { padding: 72px 0; }
+      .story-grid, .video-grid, .team-grid { grid-template-columns: 1fr; gap: 2px; }
+      .story-card:first-child, .story-card:last-child,
+      .team-card:first-child, .team-card:last-child { border-radius: 0; }
+      .story-card:first-child { border-radius: 12px 12px 0 0; }
+      .story-card:last-child,
+      .team-card:last-child { border-radius: 0 0 12px 12px; }
+      .team-card:first-child { border-radius: 12px 12px 0 0; }
+      .gr-row { grid-template-columns: 60px 1fr; gap: 0; }
+      .gr-links { grid-column: 1 / -1; justify-content: flex-start; margin-top: 10px; }
+      .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
+      .footer-meta { text-align: center; }
+      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; background: rgba(244,239,230,0.97); backdrop-filter: blur(12px); flex-direction: column; padding: 20px 24px; border-bottom: 1px solid var(--line); gap: 8px; }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: block; }
+      .nav-cta { display: inline-block !important; }
+      .nav-inner { padding: 0 24px; }
+      .stat-bar-inner { grid-template-columns: 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding: 32px 24px; }
+      .stat-item:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#top"><span class="nav-logo-text">Un<em>reel</em></span></a>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="#story">Story</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#deliverables">Deliverables</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a class="nav-cta" href="https://www.figma.com/proto/2kpSoyKifVjUVs7i8SDebw/Unreel---HiFi-Prototype?node-id=0-1&t=tHmHo3jeiEH2WaLK-1" target="_blank" rel="noopener">Try it →</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="top" class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">CS185 · Winter 2026</div>
+    <h1 class="hero-title">Un<em>reel</em></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-tagline">Let friends hold you accountable.</p>
+    <p class="hero-sub">Unreel transforms screen-time reduction into a shared, competitive experience. Set goals, create challenges, and track your progress alongside your friends.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="https://www.figma.com/proto/2kpSoyKifVjUVs7i8SDebw/Unreel---HiFi-Prototype?node-id=0-1&t=tHmHo3jeiEH2WaLK-1" target="_blank" rel="noopener">Try the Prototype →</a>
+      <a class="btn-ghost" href="#story">Read the Story</a>
+    </div>
+  </div>
+
+  <div class="hero-phones" aria-label="App screens preview">
+    <!-- Left: Challenges -->
+    <div class="phone ph-l">
+      <div class="pscreen">
+        <div class="pt">Challenges</div>
+        <div class="ps">Invitations</div>
+        <div class="pr" style="border: 1px solid var(--orange);">
+          <div class="pav" style="background:#7B8E9E;">Jc</div>
+          <div><div class="pname">Jacob</div><div class="psub">"Stop watching…"</div></div>
+          <span class="check ml">✓</span><span class="xbtn">✕</span>
+        </div>
+        <div class="pr">
+          <div class="pav" style="background:#9E7B8A;">Ma</div>
+          <div><div class="pname">Maria</div><div class="psub">"Only use Yout…"</div></div>
+          <span class="check ml">✓</span><span class="xbtn">✕</span>
+        </div>
+        <div class="obtn" style="margin-top:8px;">+ Create Challenge</div>
       </div>
-    </header>
+      <div class="pnav">
+        <div class="pni">📊</div><div class="pni">🎯</div><div class="pni">🏠</div>
+        <div class="pni on">👥</div><div class="pni">👤</div>
+      </div>
+    </div>
 
-    <main class="container page">
-      <section id="overview" class="showcase">
-        <div class="intro">
-          <p class="eyeline">CS185 · WINTER 2026</p>
-          <h1><span>Un</span><em>reel</em></h1>
-          <p class="lead">Let friends hold you accountable.</p>
-          <p class="sub">Cut the scroll. Together.</p>
-        </div>
-        <div class="mockup-wrap" aria-label="Product preview">
-          <article class="phone-card tilt-left">
-            <h2>Challenges</h2>
-            <p>Create group competitions with friends.</p>
-          </article>
-          <article class="phone-card focus">
-            <h2>Leaderboard</h2>
-            <p>Track rankings in real time and stay motivated.</p>
-          </article>
-          <article class="phone-card tilt-right">
-            <h2>Goals</h2>
-            <p>Set personal limits for apps and daily reels.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="story" class="section">
-        <div class="two-col">
-          <article class="card">
-            <h3>Why this problem matters</h3>
-            <p>
-              Young adults spend over 3 hours a day on social media. This stage of life is when habits become deeply
-              ingrained, so excessive scrolling can have long-term impact on self-image, social skills, and attention.
-            </p>
-          </article>
-          <article class="card accent-card">
-            <h3>What makes UnReel novel</h3>
-            <p>
-              Existing tools rely on lockouts and self-control alone. UnReel shifts behavior change into a social
-              context with shared reflection and friendly competition.
-            </p>
-          </article>
-        </div>
-
-        <b></b>
-
-        <article class="card">
-          <h3>Closest competitor</h3>
-          <p>
-            OneSec is the closest product: it inserts delays before opening distracting apps. While useful for impulse
-            interruption, delays can become easy to ignore. UnReel addresses sustained motivation through accountability
-            with friends.
-          </p>
-          <div class="table-scroll">
-            <table>
-              <thead>
-                <tr>
-                  <th>Feature</th>
-                  <th>UnReel</th>
-                  <th>Break Free</th>
-                  <th>Freedom</th>
-                  <th>OneSec</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>Social Accountability</td><td>✅</td><td>Limited</td><td>❌</td><td>❌</td></tr>
-                <tr><td>Real-Time Data</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
-                <tr><td>Intentional behavior change</td><td>✅</td><td>❌</td><td>❌</td><td>Partial</td></tr>
-                <tr><td>Friend Comparison</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr>
-              </tbody>
-            </table>
+    <!-- Center: Leaderboard -->
+    <div class="phone ph-c">
+      <div class="pscreen">
+        <div class="pt">Leaderboard</div>
+        <div class="pfire">🔥 James is on fire! Top of the board &amp; fewest reels watched.</div>
+        <div class="pr"><span class="prn">1</span><div class="pav" style="background:#7B9E87;">Jm</div><div><div class="pname">James</div><div class="psub">3 reels · 5 min</div></div></div>
+        <div class="pr"><span class="prn">2</span><div class="pav" style="background:#9E8A7B;">Jo</div><div><div class="pname">John</div><div class="psub">5 reels · 6 min</div></div></div>
+        <div class="pr"><span class="prn">3</span><div class="pav" style="background:#7B8E9E;">Jc</div><div><div class="pname">Jacob</div><div class="psub">7 reels · 8 min</div></div></div>
+        <div class="pr hl"><span class="prn" style="color:white;">6</span><div class="pav" style="background:rgba(255,255,255,0.25);">You</div><div><div class="pname">You</div><div class="psub" style="opacity:.8;">13 reels · 20 min</div></div></div>
+        <div class="see-more">See More</div>
+        <div class="live-box">
+          <div class="live-t">👥 Live Activity</div>
+          <div class="bubbles">
+            <div class="bub"><div class="bc" style="background:#7B9E87;">Jm</div><div class="blbl">James</div><div class="bcnt">2</div></div>
+            <div class="bub"><div class="bc you" style="background:var(--orange);">You</div><div class="blbl">You</div><div class="bcnt">5</div></div>
+            <div class="bub"><div class="bc" style="background:#9E7B8A;">My</div><div class="blbl">Maya</div><div class="bcnt">2</div></div>
+            <div class="bub"><div class="bc" style="background:#7B8E9E;">Al</div><div class="blbl">Alex</div><div class="bcnt">4</div></div>
           </div>
-        </article>
-      </section>
-
-      <section id="videos" class="section">
-        <h2>Video Deliverables</h2>
-        <div class="two-col">
-          <article class="card">
-            <h3>GR4 Concept Video</h3>
-            <div class="media">
-              <iframe
-                src="https://www.youtube.com/embed/JEo4capoGFc"
-                title="UnReel concept video"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <p class="links"><a href="https://www.youtube.com/watch?v=JEo4capoGFc" target="_blank" rel="noopener">YouTube</a> · <a href="./assets/concept-video.mp4" download>Download MP4</a></p>
-          </article>
-          <article class="card">
-            <h3>GR9 Demo Video</h3>
-           <div class="media">
-              <iframe
-                src="https://www.youtube.com/embed/DKmiRWPkzBs"
-                title="UnReel demo video"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <p class="links"><a href="https://www.youtube.com/watch?v=DKmiRWPkzBs" target="_blank" rel="noopener">Open File</a> · <a href="./assets/demo-video.mp4" download>Download MP4</a></p>
-          </article>
         </div>
-      </section>
+      </div>
+      <div class="pnav">
+        <div class="pni on">📊</div><div class="pni">🎯</div><div class="pni">🏠</div>
+        <div class="pni">👥</div><div class="pni">👤</div>
+      </div>
+    </div>
 
-      <section id="deliverables" class="section">
-        <h2>Learn more</h2>
-        <article class="card table-card">
-          <div class="table-scroll">
-            <table>
-              <thead>
-                <tr><th>GR</th><th>Topic</th><th>Links</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>GR1</td><td>Needfinding</td><td><a href="./assets/gr1_slides.pdf" target="_blank" rel="noopener">Slides (PDF)</a></td></tr>
-                <tr><td>GR2</td><td>Additional Needfinding, POVs, HMWs, Brainstorming, Experience Prototypes</td><td><a href="./assets/gr2_slides.pdf" target="_blank" rel="noopener">Slides (PDF)</a></td></tr>
-                <tr><td>GR4</td><td>Concept Video</td><td><a href="./assets/gr4_slides.pdf" target="_blank" rel="noopener">Slides</a> · <a href="https://www.youtube.com/watch?v=DKmiRWPkzBs" target="_blank" rel="noopener">YouTube</a> · <a href="./assets/video.mp4" target="_blank" rel="noopener">Download MP4</a></td></tr>
-                <tr><td>GR5</td><td>Sketching, Low-Fi Prototyping, Usability Testing</td><td><a href="./assets/gr5_slides.pdf" target="_blank" rel="noopener">Slides (PDF)</a></td></tr>
-                <tr><td>GR6</td><td>Interactive Medium-Fi Prototype</td><td><a href="./assets/gr6_slides.pdf" target="_blank" rel="noopener">Prototype File / Slides Export</a> · <a href="https://www.figma.com/proto/fOGOyVN79RFcHb9TgAvO7w/Untitled?node-id=0-1&t=Su2BZxNh77GJ93B6-1" target="_blank" rel="noopener">Figma Prototype</a></td></tr>
-                <tr><td>GR7/8</td><td>Heuristic Evaluation Synthesis</td><td><a href="./assets/heuristic-evaluation.pdf" target="_blank" rel="noopener">PDF</a></td></tr>
-                <tr><td>GR8</td><td>Interactive High-Fi Prototype</td><td><a href="./assets/gr8_slides.pdf" target="_blank" rel="noopener">Prototype Link/File / Slides Export</a> · <a href="https://www.figma.com/proto/2kpSoyKifVjUVs7i8SDebw/Unreel---HiFi-Prototype?node-id=0-1&t=tHmHo3jeiEH2WaLK-1" target="_blank" rel="noopener">Figma Prototype</a></td></tr>
-                <tr><td>GR9</td><td>Poster, Pitch, Demo Video</td><td><a href="./assets/gr9_poster.pdf" target="_blank" rel="noopener">Poster</a> · <a href="./assets/gr9_slides.pdf" target="_blank" rel="noopener">Pitch Slide</a> · <a href="./assets/demo-video.mp4" target="_blank" rel="noopener">Demo Video</a></td></tr>
-                <tr><td>GR10</td><td>Final Report</td><td><a href="./assets/final-report.pdf" target="_blank" rel="noopener">Google Doc / PDF Export</a></td></tr>
-              </tbody>
-            </table>
+    <!-- Right: Goals -->
+    <div class="phone ph-r">
+      <div class="pscreen">
+        <div class="pt">Goals</div>
+        <div class="ps">My Goals</div>
+        <div class="pgoal">&lt; 10 min Instagram<div class="pbar-bg"><div class="pbar" style="width:74%;background:#57A057;"></div></div></div>
+        <div class="pgoal">&lt; 20 reels/day<div class="pbar-bg"><div class="pbar" style="width:55%;background:var(--orange);"></div></div></div>
+        <div class="obtn">+ Create Goal</div>
+        <div class="ps" style="margin-top:8px;">Top Categories</div>
+        <div class="pr"><div style="width:14px;height:14px;border-radius:4px;background:var(--orange);color:white;font-size:7px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>Brainrot · Minecraft</div>
+        <div class="pr"><div style="width:14px;height:14px;border-radius:4px;background:rgba(43,34,20,0.2);color:var(--dark);font-size:7px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>TikTok Dances</div>
+      </div>
+      <div class="pnav">
+        <div class="pni">📊</div><div class="pni on">🎯</div><div class="pni">🏠</div>
+        <div class="pni">👥</div><div class="pni">👤</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STAT BAR ── -->
+<div class="stat-bar">
+  <div class="stat-bar-inner">
+    <div class="stat-item">
+      <div class="stat-num">3hrs</div>
+      <div class="stat-label"><strong>Gen Z</strong> spends on social media daily</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">70%</div>
+      <div class="stat-label">of screen-time limits are <strong>ignored</strong></div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">0</div>
+      <div class="stat-label">competitors offer <strong>real friend accountability</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── STORY ── -->
+<section id="story" class="section">
+  <div class="wrap">
+    <div class="section-header">
+    <div class="section-eyebrow">The Story</div>
+    <h2 class="section-title">Why we built <em>Unreel</em></h2>
+    </div>
+
+    <div class="story-grid">
+      <div class="story-card">
+        <div class="story-card-label">The Problem</div>
+        <h3>Willpower alone doesn't work</h3>
+        <p>Young adults spend over 3 hours daily on social media. This is a time when the brain is most malleable and habits stick for life. Existing tools like screen-time blockers rely entirely on individual self-control. Our needfinding revealed the real gap isn't awareness. People know they scroll too much. The gap is motivation. Nobody feels accountable to anyone when scrolling alone at 1am.</p>
+      </div>
+      <div class="story-card">
+        <div class="story-card-label">The Solution</div>
+        <h3>Gamify stopping the scroll</h3>
+        <p>Unreel shifts screen-time reduction into a game with friends. Set personal goals, send challenges to friends, and compete on a live leaderboard. The thing missing from every screen-time app is the people who actually know you. Unlike OneSec which interrupts the impulse with a delay you can wait out, Unreel targets the underlying motivation through shared reflection and friendly competition that's fundamentally harder to ignore.</p>
+      </div>
+    </div>
+
+    <div class="comp-table-wrap">
+      <div class="comp-table-head">Competitor Analysis</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Unreel</th>
+            <th>Break Free</th>
+            <th>Freedom</th>
+            <th>OneSec</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Social Accountability</td><td class="yes">Yes</td><td>Limited</td><td>No</td><td>No</td></tr>
+          <tr><td>Real-Time Data</td><td class="yes">Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+          <tr><td>Intentional Behavior Change</td><td class="yes">Yes</td><td>No</td><td>No</td><td>Partial</td></tr>
+          <tr><td>Friend Comparison</td><td class="yes">Yes</td><td>No</td><td>No</td><td>No</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ── VIDEOS ── -->
+<section id="videos" class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-header">
+    <div class="section-eyebrow">Videos</div>
+    <h2 class="section-title">See it in <em>action</em></h2>
+    </div>
+
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/JEo4capoGFc" title="Unreel concept video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-body">
+          <div class="video-label">GR4 · Concept Video</div>
+          <div class="video-title">The idea, brought to life</div>
+          <div class="video-links">
+            <a href="https://www.youtube.com/watch?v=JEo4capoGFc" target="_blank" rel="noopener">YouTube ↗</a>
+            <a href="./assets/concept-video.mp4" download>Download MP4</a>
           </div>
-        </article>
-      </section>
-
-      <section id="team" class="section">
-        <h2>Team</h2>
-        <div class="team-grid">
-          <article class="card"><h3>Pranav G.</h3><p>Research Lead</p></article>
-          <article class="card"><h3>Wilson L.</h3><p>Prototyping Lead</p></article>
-          <article class="card"><h3>Karthik J.</h3><p>Usability Testing Lead</p></article>
         </div>
-        <p class="prototype-link">Prototype: <a href="https://pgunhal.github.io/unreel/" target="_blank" rel="noopener">pgunhal.github.io/unreel/</a></p>
-      </section>
-    </main>
+      </div>
+      <div class="video-card">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/DKmiRWPkzBs" title="Unreel demo video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-body">
+          <div class="video-label">GR9 · Demo Video</div>
+          <div class="video-title">Full prototype walkthrough</div>
+          <div class="video-links">
+            <a href="https://www.youtube.com/watch?v=DKmiRWPkzBs" target="_blank" rel="noopener">YouTube ↗</a>
+            <a href="./assets/demo-video.mp4" download>Download MP4</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer class="footer">
-      <div class="container"><p>© <span id="year"></span> UnReel · CMPSC 185</p></div>
-    </footer>
+<!-- ── DELIVERABLES ── -->
+<section id="deliverables" class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-header">
+    <div class="section-eyebrow">Deliverables</div>
+    <h2 class="section-title">The full <em>process</em></h2>
+    </div>
 
-    <script>
-      const toggle = document.querySelector('.menu-toggle');
-      const menu = document.querySelector('#site-menu');
-      toggle.addEventListener('click', () => {
-        const open = menu.classList.toggle('is-open');
-        toggle.setAttribute('aria-expanded', String(open));
-      });
-      document.querySelectorAll('.nav a').forEach((link) => {
-        link.addEventListener('click', () => {
-          menu.classList.remove('is-open');
-          toggle.setAttribute('aria-expanded', 'false');
-        });
-      });
-      document.querySelector('#year').textContent = new Date().getFullYear();
-    </script>
-  </body>
+    <div class="gr-list">
+      <div class="gr-row">
+        <div class="gr-num">GR1</div>
+        <div class="gr-desc">Needfinding <span>· Interviews &amp; observations</span></div>
+        <div class="gr-links">
+          <a class="gr-link" href="./assets/gr1_slides.pdf" target="_blank">Slides</a>
+        </div>
+      </div>
+      <div class="gr-row">
+        <div class="gr-num">GR2</div>
+        <div class="gr-desc">Additional Needfinding <span>· POVs, HMWs, Brainstorming, Experience Prototypes</span></div>
+        <div class="gr-links">
+          <a class="gr-link" href="./assets/gr2_slides.pdf" target="_blank">Slides</a>
+        </div>
+      </div>
+      <div class="gr-row">
+        <div class="gr-num">GR4</div>
+        <div class="gr-desc">Concept Video <span>· Early product vision</span></div>
+        <div class="gr-links">
+          <a class="gr-link" href="./assets/gr4_slides.pdf" target="_blank">Slides</a>
+          <a class="gr-link" href="https://www.youtube.com/watch?v=JEo4capoGFc" target="_blank">YouTube</a>
+          <a class="gr-link" href="./assets/concept-video.mp4" download>Download MP4</a>
+        </div>
+      </div>
+      <div class="gr-row">
+        <div class="gr-num">GR5</div>
+        <div class="gr-desc">Low-Fi Prototype <span>· Sketching &amp; usability testing</span></div>
+        <div class="gr-links">
+          <a class="gr-link" href="./assets/gr5_slides.pdf" target="_blank">Slides</a>
+        </div>
+      </div>
+      <div class="gr-row">
+        <div class="gr-num">GR6</div>
+        <div class="gr-desc">Medium-Fi Prototype <span>· Interactive Figma prototype</span></div>
+        <div class="gr-links">
+          <a class="gr-link" href="./assets/gr6_slides.pdf" target="_blank">Slides</a>
+          <a class="gr-link" href="./assets/gr6_readme.pdf" target="_blank">README</a>
+          <a class="gr-link" href="https://www.figma.com/proto/fOGOyVN79RFcHb9TgAvO7w/Untitled?node-id=0-1&t=Su2BZxNh77GJ93B6-1" target="_blank">Figma ↗</a>
+        </div>
+      </div>
+      <div class="gr-row">
+        <div class="gr-num">GR7/8</div>
+        <div class="gr-desc">Heuristic Evaluation <span>· Synthesis of feedback</span></div>
+        <div class="gr-links">
+          <a class="gr-link" href="./assets/heuristic-evaluation.pdf" target="_blank">PDF</a>
+        </div>
+      </div>
+      <div class="gr-row">
+        <div class="gr-num">GR8</div>
+        <div class="gr-desc">High-Fi Prototype <span>· Final interactive Figma build</span></div>
+        <div class="gr-links">
+          <a class="gr-link" href="./assets/gr8_slides.pdf" target="_blank">Slides</a>
+          <a class="gr-link" href="./assets/readme.md" target="_blank">README</a>
+          <a class="gr-link" href="https://www.figma.com/proto/2kpSoyKifVjUVs7i8SDebw/Unreel---HiFi-Prototype?node-id=0-1&t=tHmHo3jeiEH2WaLK-1" target="_blank">Figma ↗</a>
+        </div>
+      </div>
+      <div class="gr-row">
+        <div class="gr-num">GR9</div>
+        <div class="gr-desc">Poster, Pitch &amp; Demo <span>· Final expo deliverables</span></div>
+        <div class="gr-links">
+          <a class="gr-link" href="./assets/gr9_poster.pdf" target="_blank">Poster</a>
+          <a class="gr-link" href="./assets/gr9_slides.pdf" target="_blank">Pitch Slide</a>
+          <a class="gr-link" href="./assets/gr9_pitch_script.pdf" target="_blank">Script</a>
+          <a class="gr-link" href="https://www.youtube.com/watch?v=DKmiRWPkzBs" target="_blank">Demo Video</a>
+          <a class="gr-link" href="./assets/demo-video.mp4" download>Download MP4</a>
+        </div>
+      </div>
+      <div class="gr-row">
+        <div class="gr-num">GR10</div>
+        <div class="gr-desc">Final Report <span>· Full design process documentation</span></div>
+        <div class="gr-links">
+          <a class="gr-link" href="./assets/final-report.pdf" target="_blank">PDF</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TEAM ── -->
+<section id="team" class="section" style="padding-top:0;padding-bottom:120px;">
+  <div class="wrap">
+    <div class="section-header">
+    <div class="section-eyebrow">The Team</div>
+    <h2 class="section-title">Who built <em>Unreel</em></h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-initial">P</div>
+        <div class="team-name">Pranav G.</div>
+        <div class="team-role">Prototype &amp; Development Lead</div>
+      </div>
+      <div class="team-card">
+        <div class="team-initial">W</div>
+        <div class="team-name">Wilson L.</div>
+        <div class="team-role">User Interview Lead</div>
+      </div>
+      <div class="team-card">
+        <div class="team-initial">K</div>
+        <div class="team-name">Karthik J.</div>
+        <div class="team-role">Usability Testing Lead</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <a class="footer-logo" href="#top">Un<em>reel</em></a>
+    <div class="footer-meta">
+      CMPSC 185 · Winter 2026 · UCSB<br>
+      <a href="https://pgunhal.github.io/unreel">pgunhal.github.io/unreel</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // nav toggle
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.querySelector('#nav-menu');
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  document.querySelectorAll('#nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+</body>
 </html>
